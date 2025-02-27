@@ -1,20 +1,20 @@
 import React from "react";
 import { List, ListItem, ListItemText, ListItemAvatar, Avatar } from "@mui/material";
-import { Experiment } from "../models/Experiment";
+import { Subject } from "../models/Subject";
 
 interface CharacterListProps {
-  experiments: Experiment[];
+  Subjects: Subject[];
 }
 
-const CharacterList: React.FC<CharacterListProps> = ({ experiments }) => {
+const CharacterList: React.FC<CharacterListProps> = ({ Subjects }) => {
   return (
     <List>
-      {experiments.map((exp) => (
-        <ListItem key={exp.englishName} divider>
+      {Subjects.map((sbj) => (
+        <ListItem key={sbj.englishName} divider>
           <ListItemAvatar>
-            <Avatar src={`/icons/${exp.icon}`} alt={exp.name} />
+            <Avatar src={`/icons/${sbj.icon}`} alt={sbj.name} />
           </ListItemAvatar>
-          <ListItemText primary={exp.name} secondary={exp.alias} />
+          <ListItemText primary={sbj.name} secondary={sbj.alias} />
         </ListItem>
       ))}
     </List>

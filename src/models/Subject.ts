@@ -1,4 +1,4 @@
-export class Experiment {
+export class Subject {
     name: string; // 실험체 이름
     alias: string; // 줄인말 (별명)
     englishName: string; // 영문명 (JSON 검색용)
