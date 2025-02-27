@@ -1,0 +1,52 @@
+/* 검색창 스타일 */
+.search-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .search-input {
+    width: 500px; /* 기존 300px → 500px로 확대 */
+    padding: 12px; /* 기존 8px → 12px로 확대 */
+    font-size: 18px; /* 기존 16px → 18px로 확대 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+/* 검색 결과 스타일 */
+.search-results {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  position: absolute;
+  left: 50%;  /* 🔹 부모 요소 기준으로 가운데 정렬 */
+  transform: translateX(-50%);  /* 🔹 정확한 중앙 정렬 */
+  width: 500px; /* 검색창과 동일한 크기로 */
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-height: 250px; /* 너무 길어지지 않도록 */
+  overflow-y: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+  
+  /* 검색 결과 항목 */
+  .search-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 10px; 
+    font-size: 18px;
+  }
+  
+  .search-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* 검색 결과 아이콘 */
+  .search-item img {
+    width: 32px; /* 기존 24px → 32px */
+    height: 32px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  
