@@ -12,6 +12,6 @@ export const Subjects: Subject[] = [
     new Subject("라우라","ㄹ안녕로봇","Laura","/icons/laura_icon.png"),
     new Subject("레녹스","ㄹ레녹스","Lenox","/icons/lenox_icon.png"),
     new Subject("레니","ㄹ레니","Leni","/icons/leni_icon.png"),
-
+    
 
 ];

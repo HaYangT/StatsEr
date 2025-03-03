@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { experiments } from "../data/experiments";
-import { Experiment } from "../models/Experiment";
+import { Subjects } from "../data/subjects";
+import { Subject } from "../models/Subject";
+import { useLocation, useNavigate } from "react-router-dom"
 import "../components/styles/SearchBar.css";
 
 const SearchBar: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [query, setQuery] = useState("");
-  const [suggestions, setSuggestions] = useState<Experiment[]>([]);
-
+  const [suggestions, setSuggestions] = useState<Subject[]>([]);
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
@@ -16,34 +19,33 @@ const SearchBar: React.FC = () => {
       return;
     }
 
-    const filtered = experiments.filter(
-      (exp) =>
-        exp.name.toLowerCase().includes(value.toLowerCase()) ||
-        exp.alias.toLowerCase().includes(value.toLowerCase())
+    const filtered = Subjects.filter(
+      (sbj) =>
+        sbj.name.toLowerCase().includes(value.toLowerCase()) ||
+        sbj.alias.toLowerCase().includes(value.toLowerCase())
     );
     setSuggestions(filtered);
   };
 
-  const handleSelect = (exp: Experiment) => {
-    setQuery(exp.name);
-    setSuggestions([]);
+  const handleSelect = (sbj: Subject) => {
+    navigate(`/stats/${sbj.englishName}`);
   };
 
   return (
     <div className="search-container">
       <input
         type="text"
-        placeholder="실험체 검색..."
+        placeholder="알고싶은 실험체의 정보를 검색해주세요"
         value={query}
         onChange={handleChange}
         className="search-input"
       />
       {suggestions.length > 0 && (
         <ul className="search-results">
-          {suggestions.map((exp) => (
-            <li key={exp.englishName} onClick={() => handleSelect(exp)} className="search-item">
-              <img src={exp.icon} alt={exp.name} />
-              {exp.name}
+          {suggestions.map((sbj) => (
+            <li key={sbj.englishName} onClick={() => handleSelect(sbj)} className="search-item">
+              <img src={sbj.icon} alt={sbj.name} />
+              {sbj.name}
             </li>
           ))}
         </ul>

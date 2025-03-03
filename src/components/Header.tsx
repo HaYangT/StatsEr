@@ -1,11 +1,18 @@
 import React from "react";
-import SearchBar from "./SearchBar";
+import {Link} from "react-router-dom"
 
 const Header: React.FC = () => {
   return (
-    <header style={{ textAlign: "center", padding: "20px" }}>
-      <h1>ER Project</h1>
-      <SearchBar /> {/* 검색창 컴포넌트 추가 */}
+    <header style={{ display: "flex",justifyContent : "space-between", padding : "10px", background: '#333',color:"white" }}>
+      <nav>
+        <ul style = {{listStyle : "none", display : "flex", gap : "15px"}}>
+          <li>
+            <Link to = "/stats" style = {{ color:"white",textDecoration : "none"}}>실험체별 통계</Link>
+          </li>
+          <li>추가 예정...</li>
+        </ul>
+
+      </nav>
     </header>
   );
 };
